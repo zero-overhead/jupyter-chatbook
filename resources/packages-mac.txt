@@ -1,0 +1,9 @@
+python
+zmq
+rakudo-star
+wget
+htop
+graphviz
+minimal-racket
+rustup
+nodejs

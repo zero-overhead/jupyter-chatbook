@@ -1,0 +1,31 @@
+################################################
+# List of packages to install
+#numpy
+#pandas
+#matplotlib
+#seaborn
+
+jupyterlab
+
+jupytext
+jupyterlab-git
+jupyterlab-github
+jupyterlab-gitlab
+metakernel
+
+# see https://jupyterlab-lsp.readthedocs.io/en/latest/Language%20Servers.html
+jupyterlab-lsp
+jedi-language-server # python
+#julia-language-server
+#python-lsp-server[all]
+#r-languageserver
+#unified-language-server # markdown
+#yaml-lsp
+#json-lsp
+
+#jupyterlab-rise
+#jupyter-collaboration
+
+jupyterlab-language-pack-fr-FR
+jupyterlab-language-pack-de-DE
+jupyterlab-language-pack-it-IT

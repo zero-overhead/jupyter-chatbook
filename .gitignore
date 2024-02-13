@@ -1,7 +1,19 @@
-# Gitignore for Raku (https://raku.org)
-# As part of https://github.com/github/gitignore
+# API keys are stored in this files - do not upload!
+.env
+
+# IDEs
+.idea
+.vscode
+
+# other stuff that accumulates
+.DS_Store
+.editorconfig
+.ipynb_checkpoints
+.pnp.cjs
+.pnp.loader.mjs
+.virtual_documents
+.yarn
 
 # precompiled files
 .precomp
 lib/.precomp
-
