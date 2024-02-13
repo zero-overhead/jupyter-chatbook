@@ -3,11 +3,12 @@
 DIR=$(dirname "$0")
 LIB_DIR=$DIR/../lib
 RES_DIR=$DIR/../resources
+CONF_DIR=$DIR/../conf
+source $CONF_DIR/global_settings.sh
 
 #######################################
 ## Setup Jupyter
 #######################################
-source $LIB_DIR/global_settings.sh
 THISENV=$ENV_DIR/$PROJECT
 
 mkdir -p $ENV_DIR

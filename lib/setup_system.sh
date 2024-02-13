@@ -3,6 +3,8 @@
 DIR=$(dirname "$0")
 LIB_DIR=$DIR/../lib
 RES_DIR=$DIR/../resources
+CONF_DIR=$DIR/../conf
+source $CONF_DIR/global_settings.sh
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "On Linux we use NixOS"

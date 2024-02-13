@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $LIB_DIR/global_settings.sh
+source $CONF_DIR/global_settings.sh
 
 echo "Python environment: $ENV_DIR/$PROJECT"
 source $ENV_DIR/$PROJECT/bin/activate
@@ -12,7 +12,7 @@ else
 fi
 
 mkdir -p $WORK_DIR
-echo "Work directory: $WORK_DIR"
+echo "Working directory: $WORK_DIR"
 
 #SHOW_PATHS="jupyter --paths"
 #echo executing: $SHOW_PATHS
