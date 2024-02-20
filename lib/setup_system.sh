@@ -17,7 +17,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	    echo "Installing https://brew.sh"
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
-	brew install $(cat $RES_DIR/packages-mac.txt)
+	brew install $(cat $CONF_DIR/packages-mac.txt)
 else
     echo "On Windows please use https://www.virtualbox.org/ or WSL (Windows Subsystem for Linux)"
     echo "in order to get a local Linux - inside we going to run Jupyter."
