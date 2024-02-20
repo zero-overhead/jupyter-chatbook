@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DIR=$(dirname "$0")
 LIB_DIR=$DIR/../lib

@@ -7,3 +7,5 @@ graphviz
 minimal-racket
 rustup
 nodejs
+imagemagick
+firefox

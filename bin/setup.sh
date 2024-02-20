@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DIR=$(dirname "$0")
 FULL_PATH=$(dirname `readlink -f $0`)
@@ -7,25 +7,16 @@ RES_DIR=$DIR/../resources
 CONF_DIR=$DIR/../conf
 source $CONF_DIR/global_settings.sh
 
-$LIB_DIR/setup_system.sh
-
-THISOS="linux"
+echo "Setup System"
+source $LIB_DIR/setup_system.sh
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	THISOS="mac"
-
-	$LIB_DIR/setup_jupyter.sh
-	source $ENV_DIR/$PROJECT/bin/activate
-	
-	$LIB_DIR/setup_raku.sh
-	$LIB_DIR/setup_rust.sh
-	$LIB_DIR/setup_AI.sh "$ENV_DIR/$PROJECT/.env"
+    source $LIB_DIR/setup_all.sh
+    jupyter lab --generate-config
+else
+    nix-shell --run "export FULL_PATH=$FULL_PATH; export LIB_DIR=$LIB_DIR; export PROJECT=$PROJECT; export ENV_DIR=$ENV_DIR; export RES_DIR=$RES_DIR; export CONF_DIR=$CONF_DIR; source $LIB_DIR/setup_all.sh; jupyter lab --generate-config" $DIR/../shell.nix
 fi
 
 echo " "
 echo "Consider creating an alias by running"
-echo "echo \"alias jn=$FULL_PATH/start-jupyter-$THISOS.sh /path/to/work-dir\" >> \$ZSH_CUSTOM/my_alias.zsh"
-echo " "
-echo "or if you are using bash"
-echo "echo \"alias jn=$FULL_PATH/start-jupyter-$THISOS.sh /path/to/work-dir\" >> \$HOME/.bashrc"
-echo " "
+echo "echo \"alias jn=$FULL_PATH/run.sh /path/to/work-dir\" >> \$HOME/.bashrc"

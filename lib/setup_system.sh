@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DIR=$(dirname "$0")
 LIB_DIR=$DIR/../lib
@@ -10,12 +10,14 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "On Linux we use NixOS"
 	#sudo apt-get update
 	#sudo apt-get install $(cat $DIR/packages-linux.txt)
-	bash <(curl -L https://nixos.org/nix/install) --daemon
+	if ! command -v nix-shell &> /dev/null; then
+		bash <(curl -L https://nixos.org/nix/install) --daemon
+	fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     echo "On Mac we use Brew"
 	if ! command -v brew &> /dev/null; then
 	    echo "Installing https://brew.sh"
-		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
 	brew install $(cat $RES_DIR/packages-mac.txt)
 else
