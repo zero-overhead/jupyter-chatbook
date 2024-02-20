@@ -4,8 +4,6 @@ Text::CodeProcessing
 File::Directory::Tree
 Math::Matrix
 Slang::Predicate
-Slang::Emoji 
 Text::Table::Simple
 Term::TablePrint
-L10N::DE
 Terminal::ANSIColor

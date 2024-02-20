@@ -1,24 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-DIR=$(dirname "$0")
-LIB_DIR=$DIR/../lib
-RES_DIR=$DIR/../resources
-CONF_DIR=$DIR/../conf
-source $CONF_DIR/global_settings.sh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    rustup-init -y
 
-#######################################
-## Setup Rustup
-#######################################
+    # install jupyter rust kernel
+    cargo install evcxr_jupyter
+    evcxr_jupyter --install
 
-rustup-init -y
+    echo "see jupyter rust kernel examples at:"
+    echo "https://github.com/evcxr/evcxr/blob/main/evcxr_jupyter/samples/evcxr_jupyter_tour.ipynb"
 
-# install jupyter rust kernel
-cargo install evcxr_jupyter
-evcxr_jupyter --install
-
-echo "see jupyter rust kernel examples at:"
-echo "https://github.com/evcxr/evcxr/blob/main/evcxr_jupyter/samples/evcxr_jupyter_tour.ipynb"
-
-# uninstall jupyter rust kernel
-#evcxr_jupyter --uninstall
-#cargo uninstall evcxr_jupyter
+    # uninstall jupyter rust kernel
+    #evcxr_jupyter --uninstall
+    #cargo uninstall evcxr_jupyter
+fi

@@ -1,10 +1,4 @@
-#!/bin/bash
-
-DIR=$(dirname "$0")
-LIB_DIR=$DIR/../lib
-RES_DIR=$DIR/../resources
-CONF_DIR=$DIR/../conf
-source $CONF_DIR/global_settings.sh
+#!/usr/bin/env bash
 
 if test ! $# == 0; then 
   API_FILE=$1
